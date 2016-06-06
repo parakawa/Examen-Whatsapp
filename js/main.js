@@ -1,14 +1,12 @@
+var tam=datos.length
 
 $(document).ready(function(){
 		llenadoSearch()
-		$(".icon-insert_emoticon").attr("onclick","escribirMensaje()")
-		
 });
 
-
+$("#search").keyup(searchContact)
 
 function llenadoSearch(){
-	tam=datos.length
 	for(var i=0;i<tam;i++){
 	var div=document.createElement("div")
 		div.setAttribute("class","panel-list-message-contact")
@@ -28,6 +26,7 @@ function mostrar(x){
 }
 
 function escribirMensaje(){
+	
 	var mensaje=$("#mensaje").val()
 	var messageUserRight=document.createElement("div")
 	messageUserRight.setAttribute("class","message-user-right")
@@ -39,9 +38,36 @@ function escribirMensaje(){
 	$(messageUser).append(textAuthor)
 	$(messageUserRight).append(messageUser)
 	$(".chat-message").append(messageUserRight)
+	cleanMensaje()
 
 }
 
+$("#mensaje").keypress(function(e) {
+    if(e.which == 13) {
+        escribirMensaje()
+    }
+});
+
+function cleanMensaje(){
+	$("#mensaje").val("")
+	$("#mensaje").focus()
+}
+
+
+function searchContact(){
+	var texto=$("#search").val()
+	for(var i=0;i<tam;i++){ 
+		if(datos[i].nombre.toLowerCase().search(texto.toLowerCase())!=-1 && texto!="" ){
+		var div=document.createElement("div")
+		div.setAttribute("class","panel-list-message-contact")
+		div.setAttribute("onclick","mostrar(this)")
+		div.innerHTML="<div class='profile-img'><img src='image/"+datos[i].imagen+"'/></div><div class='message-text show-dots'><div class='message-text-detail'><div class='name-contact show-dots'>"+datos[i].nombre+"</div><div class='message-hour '>"+datos[i].mensajes[0].fecha+"</div></div><div class='message-chat show-dots'><p class='show-dots'>"+datos[i].mensajes[0].contenido+"</p></div></div>"
+		
+		}
+		else $(".panel-contact-chat").html("")
+		$(".panel-contact-chat").append(div)
+	}
+}
 
 /*$(document).ready(function(){
 	var texto=$("#search").val()
@@ -71,27 +97,6 @@ function escribirMensaje(){
 		});	
 	});
 
-	function mostrar(){
-	var img=createElement("img")
-	img.setAttribute("src",this.getAttribute("src"))
-	img.setAttribute("alt","imagen perfil")
-	$(".panel-chat-header").append(img)
 }
 
 });*/
-
-
-/*function escribirMensaje(){
-	var mensaje=$("#mensaje").val()
-	var messageUserRight=document.createElement("div")
-	messageUserRight.setAttribute("class","message-user-right")
-	var messageUser=document.createElement("div")
-	messageUser.setAttribute("class","message-user")
-	var textAuthor=document.createElement("div")
-	textAuthor.setAttribute("class","text-author")
-	textAuthor.html(mensaje)
-	$(messageUser).append(div)
-	$(messageUserRight).append(messageUser)
-	$(".chat-message").append(messageUserRight)
-
-}*/
