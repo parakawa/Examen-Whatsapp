@@ -1,0 +1,43 @@
+@media screen and (max-width: 1100px) {
+  .app {
+    top: 0px;
+    width: 100%;
+	}
+  .panel-list-message-contact .show-dots {
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .message-text .message-chat {
+    max-width: 300px;
+  }
+  .message-text .message-chat .show-dots {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #app {
+    width: 749px;
+  }
+  #side {
+    min-width: 150px;
+  }
+  .panel-list-message-contact .show-dots {
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .message-text .message-chat {
+    max-width: 300px;
+  }
+  .message-text .message-chat .show-dots {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
