@@ -1,6 +1,8 @@
 
 $(document).ready(function(){
 		llenadoSearch()
+		$(".icon-insert_emoticon").attr("onclick","escribirMensaje()")
+		
 });
 
 
@@ -8,7 +10,7 @@ $(document).ready(function(){
 function llenadoSearch(){
 	tam=datos.length
 	for(var i=0;i<tam;i++){
-		var div=document.createElement("div")
+	var div=document.createElement("div")
 		div.setAttribute("class","panel-list-message-contact")
 		div.setAttribute("onclick","mostrar(this)")
 		div.innerHTML="<div class='profile-img'><img src='image/"+datos[i].imagen+"'/></div><div class='message-text show-dots'><div class='message-text-detail'><div class='name-contact show-dots'>"+datos[i].nombre+"</div><div class='message-hour '>"+datos[i].mensajes[0].fecha+"</div></div><div class='message-chat show-dots'><p class='show-dots'>"+datos[i].mensajes[0].contenido+"</p></div></div>"
@@ -22,6 +24,21 @@ function mostrar(x){
 	var img="<img src='"+src+"'alt='imagen perfil'>"
 	$(".panel-chat-header").html(img)
 	$(".panel-chat-detail").children("div.text").children("div.name-contact").html(name)
+
+}
+
+function escribirMensaje(){
+	var mensaje=$("#mensaje").val()
+	var messageUserRight=document.createElement("div")
+	messageUserRight.setAttribute("class","message-user-right")
+	var messageUser=document.createElement("div")
+	messageUser.setAttribute("class","message-user")
+	var textAuthor=document.createElement("div")
+	textAuthor.setAttribute("class","text-author")
+	$(textAuthor).html(mensaje)
+	$(messageUser).append(textAuthor)
+	$(messageUserRight).append(messageUser)
+	$(".chat-message").append(messageUserRight)
 
 }
 
@@ -62,3 +79,19 @@ function mostrar(x){
 }
 
 });*/
+
+
+/*function escribirMensaje(){
+	var mensaje=$("#mensaje").val()
+	var messageUserRight=document.createElement("div")
+	messageUserRight.setAttribute("class","message-user-right")
+	var messageUser=document.createElement("div")
+	messageUser.setAttribute("class","message-user")
+	var textAuthor=document.createElement("div")
+	textAuthor.setAttribute("class","text-author")
+	textAuthor.html(mensaje)
+	$(messageUser).append(div)
+	$(messageUserRight).append(messageUser)
+	$(".chat-message").append(messageUserRight)
+
+}*/
