@@ -18,15 +18,24 @@ function llenadoSearch(){
 
 function mostrar(x){
 	var src=$(x).find("img").attr("src")
-	var name=$(x).children("div.message-text show-dots").children("div.message-text-detail").children("div.name-contact show-dots").text()
 	var img="<img src='"+src+"'alt='imagen perfil'>"
+	var name=$($(x)).children("div.message-text").children("div.message-text-detail").children("div.name-contact").text()
+	var hora=$($(x)).children("div.message-text").children("div.message-text-detail").children("div.message-hour").text()
 	$(".panel-chat-header").html(img)
 	$(".panel-chat-detail").children("div.text").children("div.name-contact").html(name)
-
+	$(".panel-chat-detail").children("div.text").children("div.name-group").html(hora)
 }
 
 function escribirMensaje(){
+	var hora="01:15"
+	var span=document.createElement("span")
+	$(span).html(hora)
+	span.setAttribute("class","chat-hour")
+	var bubbleChatHour=document.createElement("div")
+	bubbleChatHour.setAttribute("class","bubble-chat-hour")
+	$(bubbleChatHour).append(span)
 	
+
 	var mensaje=$("#mensaje").val()
 	var messageUserRight=document.createElement("div")
 	messageUserRight.setAttribute("class","message-user-right")
@@ -36,8 +45,10 @@ function escribirMensaje(){
 	textAuthor.setAttribute("class","text-author")
 	$(textAuthor).html(mensaje)
 	$(messageUser).append(textAuthor)
+	$(messageUser).append(bubbleChatHour)
 	$(messageUserRight).append(messageUser)
 	$(".chat-message").append(messageUserRight)
+
 	cleanMensaje()
 
 }
