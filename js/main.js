@@ -21,13 +21,26 @@ function mostrar(x){
 	var img="<img src='"+src+"'alt='imagen perfil'>"
 	var name=$($(x)).children("div.message-text").children("div.message-text-detail").children("div.name-contact").text()
 	var hora=$($(x)).children("div.message-text").children("div.message-text-detail").children("div.message-hour").text()
+	
+	for(var i=0;i<tam;i++){
+		if(name==datos[i].nombre){ 
+			for (var j=0; j<datos[i].mensajes.length; j++) {
+				$(".chat-message").children("div.message-author").children("a.name-author").text(name)
+				$(".chat-message").children("div.message-author").children("a.text-author").text(datos[i].mensajes[0].contenido)
+			}	$(".chat-message").children("div.message-author").children("a.bubble-chat-hour").span("a.chat-hour").text(hora)
+		}
+	}
+
+
 	$(".panel-chat-header").html(img)
 	$(".panel-chat-detail").children("div.text").children("div.name-contact").html(name)
 	$(".panel-chat-detail").children("div.text").children("div.name-group").html(hora)
+
+
 }
 
 function escribirMensaje(){
-	var hora="01:15"
+	var hora=obtenerHora()
 	var span=document.createElement("span")
 	$(span).html(hora)
 	span.setAttribute("class","chat-hour")
@@ -35,7 +48,6 @@ function escribirMensaje(){
 	bubbleChatHour.setAttribute("class","bubble-chat-hour")
 	$(bubbleChatHour).append(span)
 	
-
 	var mensaje=$("#mensaje").val()
 	var messageUserRight=document.createElement("div")
 	messageUserRight.setAttribute("class","message-user-right")
@@ -50,7 +62,17 @@ function escribirMensaje(){
 	$(".chat-message").append(messageUserRight)
 
 	cleanMensaje()
+}
 
+function obtenerHora(){
+	var fecha=new Date()
+	var minutos=fecha.getMinutes()
+ 	if(minutos<10)
+ 		minutos="0"+minutos
+ 	var horas=fecha.getHours()
+ 	if(horas<10)
+ 		horas="0"+horas
+ 	return horas+":"+minutos
 }
 
 $("#mensaje").keypress(function(e) {
@@ -68,7 +90,7 @@ function cleanMensaje(){
 function searchContact(){
 	var texto=$("#search").val()
 	for(var i=0;i<tam;i++){ 
-		if(datos[i].nombre.toLowerCase().search(texto.toLowerCase())!=-1 && texto!="" ){
+		if((datos[i].nombre.toLowerCase().search(texto.toLowerCase())!=-1 && texto!="") || (datos[i].mensajes[0].contenido.toLowerCase().search(texto.toLowerCase())!=-1 && texto!="") ){
 		var div=document.createElement("div")
 		div.setAttribute("class","panel-list-message-contact")
 		div.setAttribute("onclick","mostrar(this)")
@@ -80,34 +102,66 @@ function searchContact(){
 	}
 }
 
-/*$(document).ready(function(){
-	var texto=$("#search").val()
-	$.getJSON("data.json",function(data){
-		var output="";
-		$.each(data,function(key,val){
-			output+="<div class='panel-list-message-contact'><div class='profile-img'><img src='image/"+val.imagen+"'/></div><div class='message-text show-dots'><div class='message-text-detail'><div class='name-contact show-dots'>"+val.nombre+"</div><div class='message-hour '>"+val.mensajes[0].fecha+"</div></div><div class='message-chat show-dots'><p class='show-dots'>"+val.mensajes[0].contenido+"</p></div></div></div>"
-		})
-		$(".panel-contact-chat").html(output)
-		$.each(data, function (key,val){
-			if (val.nombre.search(texto) != -1 && texto!="" ){
-			 output=""
-			 output+="<div class='panel-list-message-contact'><div class='profile-img'><img src='image/"+val.imagen+"'/></div><div class='message-text show-dots'><div class='message-text-detail'><div class='name-contact show-dots'>"+val.nombre+"</div><div class='message-hour '>"+val.mensajes[0].fecha+"</div></div><div class='message-chat show-dots'><p class='show-dots'>"+val.mensajes[0].contenido+"</p></div></div></div>"
-			 $(".panel-contact-chat").html(output)
-			}
-			else if (texto!="" || texto=undefined){
-				output=""
-			 	output+="<div class='panel-list-message-contact'><div class='profile-img'><img src='image/"+val.imagen+"'/></div><div class='message-text show-dots'><div class='message-text-detail'><div class='name-contact show-dots'>"+val.nombre+"</div><div class='message-hour '>"+val.mensajes[0].fecha+"</div></div><div class='message-chat show-dots'><p class='show-dots'>"+val.mensajes[0].contenido+"</p></div></div></div>"
-				$(".panel-contact-chat").html(output)
-			}
 
-			else {
-				output="<p>No se encontró</p>"
-				$(".panel-contact-chat").html(output)
-			}○
+function mostrar(x){
+	var src=$(x).find("img").attr("src")
+	var img="<img src='"+src+"'alt='imagen perfil'>"
+	var name=$($(x)).children("div.message-text").children("div.message-text-detail").children("div.name-contact").text()
+	var hora=$($(x)).children("div.message-text").children("div.message-text-detail").children("div.message-hour").text()
+	
+	for(var i=0;i<tam;i++){
+		if(name==datos[i].nombre){ 
+			for (var j=0; j<datos[i].mensajes.length; j++) {
+				$(".chat-message").children("div.message-author").children("a.name-author").text(name)
+				
+			}
+		}
+	}
 
-		});	
-	});
+
+	$(".panel-chat-header").html(img)
+	$(".panel-chat-detail").children("div.text").children("div.name-contact").html(name)
+	$(".panel-chat-detail").children("div.text").children("div.name-group").html(hora)
+
 
 }
 
-});*/
+/*function mostrar(x){
+	var src=$(x).find("img").attr("src")
+	var img="<img src='"+src+"'alt='imagen perfil'>"
+	var name=$($(x)).children("div.message-text").children("div.message-text-detail").children("div.name-contact").text()
+	var hora=$($(x)).children("div.message-text").children("div.message-text-detail").children("div.message-hour").text()
+	
+	for(var i=0;i<tam;i++){
+		if(name==datos[i].nombre){ 
+			for (var j=0; j<datos[i].mensajes.length; j++) {
+				var a=document.createElement("a")
+				a.setAttribute("class","name-author color3")
+				$(a).html(name)
+				var div=document.createElement("div")
+				div.setAttribute("class","text-author")
+				$(div).text(datos[i].mensajes[j].contenido)
+				var span=document.createElement("span")
+				span.setAttribute("class","bubble-chat-hour")
+				$(span).text(datos[i].mensajes[j].fecha)
+				var bubbleChatHour=document.createElement("div")
+				bubbleChatHour.setAttribute("class","bubble-chat-hour")
+				$(bubbleChatHour).append(span)
+				var messageAuthor=document.createElement("div")
+				messageAuthor.setAttribute("class","message-author")
+				$(messageAuthor).append(a)
+				$(messageAuthor).append(div)
+				$(messageAuthor).append(bubbleChatHour)
+				$(".chat-message").append(messageAuthor)
+
+			}
+		}
+	}
+
+
+	$(".panel-chat-header").html(img)
+	$(".panel-chat-detail").children("div.text").children("div.name-contact").html(name)
+	$(".panel-chat-detail").children("div.text").children("div.name-group").html(hora)
+
+
+}*/
