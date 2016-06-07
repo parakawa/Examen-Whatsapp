@@ -119,6 +119,8 @@ var datos=[
         "mensajes":[
               {"contenido":"Vamo pe",
              "fecha":"28/05/16"},
+             {"contenido":"Pushea, mami pushea",
+             "fecha":"28/05/16"},
              {"contenido":"Probando, probando",
              "fecha":"28/05/16"},
              {"contenido":"Estoy usando flexbox *-*",
