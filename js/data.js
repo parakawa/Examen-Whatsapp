@@ -41,6 +41,7 @@ var datos=[
              "fecha":"11:23"},
             {"contenido":"El panel de speakers está buenazo",
              "fecha":"09:25"}],
+             "yo" :[],
         "tipo":"persona",
         "integrantes": "Mariana"
     },
@@ -52,6 +53,7 @@ var datos=[
              "fecha":"Ayer"},
             {"contenido":"Pues dale Chamo!",
              "fecha":"Ayer"}],
+             "yo" :[],
         "tipo":"persona",
         "integrantes": "Ana"
     },
@@ -63,6 +65,7 @@ var datos=[
              "fecha":"Miércoles"},
             {"contenido":"¿Cómo van las chicas?!",
              "fecha":"Martes"}],
+             "yo" :[],
         "tipo":"persona",
         "integrantes": "Rodulfo"
     },
@@ -74,6 +77,7 @@ var datos=[
              "fecha":"Lunes"},
             {"contenido":"Hoy me toca clases de canto, yee =D ",
              "fecha":"Lunes"}],
+             "yo" :[],
         "tipo":"persona",
         "integrantes": "Andrea"
     },
@@ -85,6 +89,7 @@ var datos=[
              "fecha":"01/06/16"},
             {"contenido":"Wuju! esto me encanta!!, en verdad!",
              "fecha":"02/06/16"}],
+             "yo" :[],
         "tipo":"persona",
         "integrantes": "Papu"
     },
@@ -96,6 +101,7 @@ var datos=[
              "fecha":"01/06/16"},
             {"contenido":"No te preocupes, tengo el salón bajo control",
              "fecha":"01/06/16"}],
+             "yo" :[],
         "tipo":"persona",
         "integrantes": "Katy"
     },
@@ -107,6 +113,7 @@ var datos=[
              "fecha":"01/06/16"},
             {"contenido":"Vao a comer?",
              "fecha":"31/05/16"}],
+             "yo" :[],
         "tipo":"persona",
         "integrantes": "Aldo"
     },
@@ -116,13 +123,11 @@ var datos=[
         "mensajes":[
             {"contenido":"Ya estoy saliendo",
              "fecha":"29/05/16"},
-<<<<<<< HEAD
-  					{"contenido":"Ahora levanto el servidor",
-  					 "fecha":"29/05/16"}],
-=======
-            {"contenido":"Ahora levanto el servidor",
-             "fecha":"29/05/16"}],
->>>>>>> e35fad9d7b3bab1c3669a446dee91a2d45670d25
+
+  			{"contenido":"Ahora levanto el servidor",
+  			"fecha":"29/05/16"}],
+
+             "yo" :[],
         "tipo":"persona",
         "integrantes": "José"
     },
@@ -138,6 +143,7 @@ var datos=[
              "fecha":"28/05/16"},
              {"contenido":"Estoy usando flexbox *-*",
              "fecha":"29/05/16"}],
+             "yo" :[],
              "tipo":"persona",
              "integrantes": "Karen"
     },
@@ -151,6 +157,7 @@ var datos=[
              "fecha":"28/05/16"},
             {"contenido":"Estoy usando la maqueta de Karen :P",
              "fecha":"29/05/16"}],
+             "yo" :[],
         "tipo":"persona",
         "integrantes": "Paty"
     }
