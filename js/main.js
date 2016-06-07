@@ -90,34 +90,13 @@ function searchContact(){
 }
 
 
-function mostrar(x){
-	var src=$(x).find("img").attr("src")
-	var img="<img src='"+src+"'alt='imagen perfil'>"
-	var name=$($(x)).children("div.message-text").children("div.message-text-detail").children("div.name-contact").text()
-	var hora=$($(x)).children("div.message-text").children("div.message-text-detail").children("div.message-hour").text()
-	
-	for(var i=0;i<tam;i++){
-		if(name==datos[i].nombre){ 
-			for (var j=0; j<datos[i].mensajes.length; j++) {
-				$(".chat-message").children("div.message-author").children("a.name-author").text(name)
-				
-			}
-		}
-	}
-
-
-	$(".panel-chat-header").html(img)
-	$(".panel-chat-detail").children("div.text").children("div.name-contact").html(name)
-	$(".panel-chat-detail").children("div.text").children("div.name-group").html(hora)
-
-
-}
 
 function mostrar(x){
 	var src=$(x).find("img").attr("src")
 	var img="<img src='"+src+"'alt='imagen perfil'>"
 	var name=$($(x)).children("div.message-text").children("div.message-text-detail").children("div.name-contact").text()
 	var hora=$($(x)).children("div.message-text").children("div.message-text-detail").children("div.message-hour").text()
+	$(".chat-message").html("")
 	for(var i=0;i<tam;i++){
 		if(name==datos[i].nombre){ 
 			for (var j=0; j<datos[i].mensajes.length; j++) {
@@ -138,9 +117,10 @@ function mostrar(x){
 				$(messageAuthor).append(a)
 				$(messageAuthor).append(div)
 				$(messageAuthor).append(bubbleChatHour)
+
 				$(".chat-message").append(messageAuthor)
 
-				$(".panel-chat-room").append(".chat-message")
+				
 
 			}
 		}
@@ -177,3 +157,20 @@ function mostrar(x){
 
 
 }*/
+
+/*function searchContact(){
+	var texto=$("#search").val()
+	for(var i=0;i<tam;i++)
+		for(var j=0;j<datos[i].mensajes.length;j++){ 
+		if((datos[i].nombre.toLowerCase().search(texto.toLowerCase())!=-1 && texto!="") || (datos[i].mensajes[j].contenido.toLowerCase().search(texto.toLowerCase())!=-1 && texto!="") ){
+		var div=document.createElement("div")
+		div.setAttribute("class","panel-list-message-contact")
+		div.setAttribute("onclick","mostrar(this)")
+		div.innerHTML="<div class='profile-img'><img src='image/"+datos[i].imagen+"'/></div><div class='message-text show-dots'><div class='message-text-detail'><div class='name-contact show-dots'>"+datos[i].nombre+"</div><div class='message-hour '>"+datos[i].mensajes[j].fecha+"</div></div><div class='message-chat show-dots'><p class='show-dots'>"+datos[i].mensajes[j].contenido+"</p></div></div>"
+		
+		}
+		else $(".panel-contact-chat").html("")
+		$(".panel-contact-chat").append(div)
+	}
+}*/
+
