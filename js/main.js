@@ -65,6 +65,11 @@ function escribirMensaje(){
 	$(".chat-message").append(messageUserRight)
 	$(textAuthor).emoticonize()
 
+	var arrAuxiliar=$(".panel-contact-chat").children()
+	for (var i=0;i<tam;i++)
+		if(	$(".panel-chat-detail").children("div.text").children("div.name-contact").text()==$($(".panel-contact-chat").children()[i]).children("div.message-text").children("div.message-text-detail").children("div.name-contact").text())
+					$($(".panel-contact-chat").children()[i]).children("div.message-text").children("div.message-chat").children("p.show-dots").text(mensaje)
+
 	cleanMensaje()
 }
 
