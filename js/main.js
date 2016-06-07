@@ -2,7 +2,9 @@ var tam=datos.length
 
 $(document).ready(function(){
 		llenadoSearch()
+
 });
+
 
 $("#search").keyup(searchContact)
 
@@ -13,6 +15,7 @@ function llenadoSearch(){
 		div.setAttribute("onclick","mostrar(this)")
 		div.innerHTML="<div class='profile-img'><img src='image/"+datos[i].imagen+"'/></div><div class='message-text show-dots'><div class='message-text-detail'><div class='name-contact show-dots'>"+datos[i].nombre+"</div><div class='message-hour '>"+datos[i].mensajes[0].fecha+"</div></div><div class='message-chat show-dots'><p class='show-dots'>"+datos[i].mensajes[0].contenido+"</p></div></div>"
 		$(".panel-contact-chat").append(div)
+		$(".message-chat").emoticonize()
 	}
 }
 
@@ -60,6 +63,7 @@ function escribirMensaje(){
 	$(messageUser).append(bubbleChatHour)
 	$(messageUserRight).append(messageUser)
 	$(".chat-message").append(messageUserRight)
+	$(textAuthor).emoticonize()
 
 	cleanMensaje()
 }

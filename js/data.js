@@ -3,7 +3,7 @@ var datos=[
         "nombre": "Laboratoria Perú",
         "imagen": "logocodeacademy.png",
   		"mensajes":[
-  					{"contenido":"dale, dale",
+  					{"contenido":"dale, dale  :-)",
   					 "fecha":"14:25"}],
         "tipo": "grupo",
         "integrantes":["Aldo", "Ana María", "Gian","Mariana", "Papu"]
@@ -12,7 +12,7 @@ var datos=[
         "nombre": "Raymi Saldomando",
         "imagen": "raymi.jpg",
         "mensajes":[
-  					{"contenido":"La clase va bien!",
+  					{"contenido":"La clase va bien! O:)",
   					 "fecha":"11:25"}],
         "tipo":"persona",
         "integrantes": "Raymi"
@@ -48,7 +48,7 @@ var datos=[
         "nombre": "Andrea Lamas",
         "imagen": "andrea.jpg",
         "mensajes":[
-  					{"contenido":"Hoy me toca clases de canto, yee",
+  					{"contenido":"Hoy me toca clases de canto, yee =D ",
   					 "fecha":"Lunes"}],
         "tipo":"persona",
         "integrantes": "Andrea"
