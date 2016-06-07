@@ -10,7 +10,9 @@ var datos=[
             {"contenido":"holitas",
              "fecha":"14:25"},
   					{"contenido":"dale, dale  :-)",
-  					 "fecha":"14:25"}],
+  					 "fecha":"14:25"},
+             {"contenido":"Por si acaso mis últimos cambios están en gh-pages",
+             "fecha":"14:25"}],
         "tipo": "grupo",
         "integrantes":["Aldo", "Ana María", "Gian","Mariana", "Papu"]
     },
@@ -108,6 +110,8 @@ var datos=[
         "nombre": "José Luis",
         "imagen": "jose.jpg",
         "mensajes":[
+            {"contenido":"Ya estoy saliendo",
+             "fecha":"29/05/16"},
   					{"contenido":"Ahora levanto el servidor",
   					 "fecha":"29/05/16"}],
         "tipo":"persona",
@@ -132,6 +136,8 @@ var datos=[
         "nombre": "Paty Arakawa",
         "imagen": "paty.jpg",
         "mensajes":[
+            {"contenido":"No hay electricidad, estoy llenando la data",
+             "fecha":"28/05/16"},
             {"contenido":"Vamo con jess?",
              "fecha":"28/05/16"},
   					{"contenido":"Estoy usando la maqueta de Karen :P",

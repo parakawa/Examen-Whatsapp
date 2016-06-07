@@ -96,6 +96,7 @@ function mostrar(x){
 	var img="<img src='"+src+"'alt='imagen perfil'>"
 	var name=$($(x)).children("div.message-text").children("div.message-text-detail").children("div.name-contact").text()
 	var hora=$($(x)).children("div.message-text").children("div.message-text-detail").children("div.message-hour").text()
+	$(".chat-message").html("")
 	for(var i=0;i<tam;i++){
 		if(name==datos[i].nombre){ 
 			for (var j=0; j<datos[i].mensajes.length; j++) {
@@ -116,9 +117,10 @@ function mostrar(x){
 				$(messageAuthor).append(a)
 				$(messageAuthor).append(div)
 				$(messageAuthor).append(bubbleChatHour)
+
 				$(".chat-message").append(messageAuthor)
 
-				$(".panel-chat-room").append(".chat-message")
+				
 
 			}
 		}
