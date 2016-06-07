@@ -10,9 +10,7 @@ var datos=[
             {"contenido":"holitas",
              "fecha":"14:25"},
   					{"contenido":"dale, dale  :-)",
-  					 "fecha":"14:25"},
-             {"contenido":"Por si acaso mis últimos cambios están en gh-pages",
-             "fecha":"14:25"}],
+  					 "fecha":"14:25"}],
         "tipo": "grupo",
         "integrantes":["Aldo", "Ana María", "Gian","Mariana", "Papu"]
     },
