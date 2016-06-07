@@ -11,6 +11,11 @@ var datos=[
              "fecha":"14:25"},
             {"contenido":"dale, dale  :-)",
              "fecha":"14:25"}],
+             "yo":[
+            {"contenido":"Qué boni",
+             "fecha":"11:23"},
+            {"contenido":"Bien, ahí están, avanzando",
+             "fecha":"09:25"}],
         "tipo": "grupo",
         "integrantes":["Aldo", "Ana María", "Gian","Mariana", "Papu"]
     },
@@ -24,6 +29,7 @@ var datos=[
              "fecha":"11:24"},
             {"contenido":"La clase va bien! O:)",
              "fecha":"11:25"}],
+              "yo" :[],
         "tipo":"persona",
         "integrantes": "Raymi"
     },
@@ -54,7 +60,7 @@ var datos=[
         "imagen": "rodulfo.jpg",
         "mensajes":[
             {"contenido":"Ya vienen, ya",
-             "fecha":"Martes"},
+             "fecha":"Miércoles"},
             {"contenido":"¿Cómo van las chicas?!",
              "fecha":"Martes"}],
         "tipo":"persona",
