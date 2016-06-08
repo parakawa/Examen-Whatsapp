@@ -1,0 +1,24 @@
+{
+  "name": "Examen-Whatsapp",
+  "version": "1.0.0",
+  "description": "Whatsapp ===============",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/parakawa/Examen-Whatsapp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/parakawa/Examen-Whatsapp/issues"
+  },
+  "homepage": "https://github.com/parakawa/Examen-Whatsapp#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "socket.io": "^1.4.6"
+  }
+}
