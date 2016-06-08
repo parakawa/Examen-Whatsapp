@@ -43,11 +43,16 @@ function escribirMensaje(){
 	$(textAuthor).emoticonize()
 
 	var arrAuxiliar=$(".panel-contact-chat").children()
-	for (var i=0;i<tam;i++)
+	for (var i=0;i<tam;i++){
 		if(	$(".panel-chat-detail").children("div.text").children("div.name-contact").text()==$($(".panel-contact-chat").children()[i]).children("div.message-text").children("div.message-text-detail").children("div.name-contact").text()){ 
 					$($(".panel-contact-chat").children()[i]).children("div.message-text").children("div.message-chat").children("p.show-dots").text(mensaje)
 					$($(".panel-contact-chat").children()[i]).children("div.message-text").children("div.message-text-detail").children("div.message-hour").text(hora)
 				}
+		if($(".text").children(".name-contact").text()==datos[i].nombre){
+			datos[i].mensajes.push({contenido:mensaje, fecha:hora})
+		}
+	}
+
 	cleanMensaje()
 }
 
