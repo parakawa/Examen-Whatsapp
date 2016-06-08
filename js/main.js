@@ -13,7 +13,8 @@ function llenadoSearch(){
 	var div=document.createElement("div")
 		div.setAttribute("class","panel-list-message-contact")
 		div.setAttribute("onclick","mostrar(this)")
-		div.innerHTML="<div class='profile-img'><img src='image/"+datos[i].imagen+"'/></div><div class='message-text show-dots'><div class='message-text-detail'><div class='name-contact show-dots'>"+datos[i].nombre+"</div><div class='message-hour '>"+datos[i].mensajes[(datos[i].mensajes.length)-1].fecha+"</div></div><div class='message-chat show-dots'><p class='show-dots'>"+datos[i].mensajes[(datos[i].mensajes.length)-1].contenido+"</p></div></div>"
+		div.innerHTML="<div class='profile-img'><img src='image/"+datos[i].imagen+"'/></div><div class='message-text show-dots'><div class='message-text-detail'><div class='name-contact show-dots'>"+datos[i].nombre+
+		"</div><div class='message-hour '>"+datos[i].mensajes[(datos[i].mensajes.length)-1].fecha+"</div></div><div class='message-chat show-dots'><p class='show-dots'>"+datos[i].mensajes[(datos[i].mensajes.length)-1].contenido+"</p></div></div>"
 		$(".panel-contact-chat").append(div)
 		$(".message-chat").emoticonize()
 	}
@@ -86,7 +87,8 @@ function searchContact(){
 		var div=document.createElement("div")
 		div.setAttribute("class","panel-list-message-contact")
 		div.setAttribute("onclick","mostrar(this)")
-		div.innerHTML="<div class='profile-img'><img src='image/"+datos[i].imagen+"'/></div><div class='message-text show-dots'><div class='message-text-detail'><div class='name-contact show-dots'>"+datos[i].nombre+"</div><div class='message-hour '>"+datos[i].mensajes[0].fecha+"</div></div><div class='message-chat show-dots'><p class='show-dots'>"+datos[i].mensajes[0].contenido+"</p></div></div>"
+		div.innerHTML="<div class='profile-img'><img src='image/"+datos[i].imagen+"'/></div><div class='message-text show-dots'><div class='message-text-detail'><div class='name-contact show-dots'>"+
+		datos[i].nombre+"</div><div class='message-hour '>"+datos[i].mensajes[(datos[i].mensajes.length)-1].fecha+"</div></div><div class='message-chat show-dots'><p class='show-dots'>"+datos[i].mensajes[(datos[i].mensajes.length)-1].contenido+"</p></div></div>"
 		
 		}
 		else $(".panel-contact-chat").html("")
@@ -125,8 +127,6 @@ function mostrar(x){
 
 				$(".chat-message").append(messageAuthor)
 
-				
-
 			}
 		}
 	}
@@ -134,9 +134,13 @@ function mostrar(x){
 
 	$(".panel-chat-header").html(img)
 	$(".panel-chat-detail").children("div.text").children("div.name-contact").html(name)
-	$(".panel-chat-detail").children("div.text").children("div.name-group").html(hora)
 
-	
+	for(var j=0;j<tam;j++)
+		if(name==datos[j].nombre)
+			if(datos[j].tipo=="grupo")
+				$(".panel-chat-detail").children("div.text").children("div.name-group").html(datos[j].integrantes)
+			else
+				$(".panel-chat-detail").children("div.text").children("div.name-group").html(hora)
 
 }
 

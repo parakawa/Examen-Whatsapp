@@ -17,7 +17,7 @@ var datos=[
             {"contenido":"Bien, ahí están, avanzando",
              "fecha":"09:25"}],
         "tipo": "grupo",
-        "integrantes":["Aldo", "Ana María", "Gian","Mariana", "Papu"]
+        "integrantes":"Aldo, Ana María, Gian,Mariana, Papu"
     },
     {
         "nombre": "Raymi Saldomando",
