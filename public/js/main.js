@@ -140,7 +140,34 @@ function mostrar(x){
 			if(datos[j].tipo=="grupo")
 				$(".panel-chat-detail").children("div.text").children("div.name-group").html(datos[j].integrantes)
 			else
-				$(".panel-chat-detail").children("div.text").children("div.name-group").html(hora)
+				$(".panel-chat-detail").children("div.text").children("div.name-group").html("últ.vez "+hora)
 
 }
 
+var socket = io.connect('http://localhost:8080', { 'forceNew': true });
+
+socket.on('panel-chat-message', function(data) {  
+  console.log(data);
+  render(data);
+})
+
+function render (data) {  
+  var html = data.map(function(elem, index) {
+    return(`<div>
+              <strong>${elem.author}</strong>:
+              <em>${elem.text}</em>
+            </div>`);
+  }).join(" ");
+
+  document.getElementsByClassName('panel-chat-message').innerHTML = html;
+}
+
+function addMessage(e) {  
+  var message = {
+    author: "paty",
+    text: document.getElementtById('mensaje').value
+  };
+
+  socket.emit('new-message', message);
+  return false;
+}
