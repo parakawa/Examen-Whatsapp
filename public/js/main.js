@@ -127,7 +127,8 @@ function mostrar(x){
 
 }
 
-var socket = io.connect('http://localhost:8080', { 'forceNew': true });
+/*var socket = io.connect(process.env.PORT || 'http://localhost:8080', { 'forceNew': true });*/
+var socket = io.connect();
 
 socket.on('mesaggeRender', function(data) {  
   console.log(data);
