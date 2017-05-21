@@ -21,27 +21,9 @@ function llenadoSearch(){
 }
 
 function escribirMensaje(){
-	var hora=obtenerHora()
-	var span=document.createElement("span")
-	$(span).html(hora)
-	span.setAttribute("class","chat-hour")
-	var bubbleChatHour=document.createElement("div")
-	bubbleChatHour.setAttribute("class","bubble-chat-hour")
-	$(bubbleChatHour).append(span)
-	
-	var mensaje=$("#mensaje").val()
-	var messageUserRight=document.createElement("div")
-	messageUserRight.setAttribute("class","message-user-right")
-	var messageUser=document.createElement("div")
-	messageUser.setAttribute("class","message-user")
-	var textAuthor=document.createElement("div")
-	textAuthor.setAttribute("class","text-author")
-	$(textAuthor).html(mensaje)
-	$(messageUser).append(textAuthor)
-	$(messageUser).append(bubbleChatHour)
-	$(messageUserRight).append(messageUser)
-	$(".chat-message").append(messageUserRight)
-	$(textAuthor).emoticonize()
+	var hora=obtenerHora();
+	var mensaje=$("#mensaje").val();
+
 
 	var arrAuxiliar=$(".panel-contact-chat").children()
 	for (var i=0;i<tam;i++){
@@ -70,7 +52,8 @@ function obtenerHora(){
 
 $("#mensaje").keypress(function(e) {
     if(e.which == 13) {
-        escribirMensaje()
+    	addMessage();
+        escribirMensaje();
     }
 });
 
@@ -146,26 +129,50 @@ function mostrar(x){
 
 var socket = io.connect('http://localhost:8080', { 'forceNew': true });
 
-socket.on('panel-chat-message', function(data) {  
+socket.on('mesaggeRender', function(data) {  
   console.log(data);
   render(data);
 })
 
 function render (data) {  
-  var html = data.map(function(elem, index) {
+	$(".chat-message").html("");
+	data.map(function(elem,index){ 
+	var span=document.createElement("span")
+	$(span).html(elem.hora)
+	span.setAttribute("class","chat-hour")
+	var bubbleChatHour=document.createElement("div")
+	bubbleChatHour.setAttribute("class","bubble-chat-hour")
+	$(bubbleChatHour).append(span)
+	
+	
+	var messageUserRight=document.createElement("div")
+	messageUserRight.setAttribute("class","message-user-right")
+	var messageUser=document.createElement("div")
+	messageUser.setAttribute("class","message-user")
+	var textAuthor=document.createElement("div")
+	textAuthor.setAttribute("class","text-author")
+	$(textAuthor).html(elem.text)
+	$(messageUser).append(textAuthor)
+	$(messageUser).append(bubbleChatHour)
+	$(messageUserRight).append(messageUser)
+	$(".chat-message").append(messageUserRight)
+	$(textAuthor).emoticonize()
+	});
+
+/*  var html = data.map(function(elem, index) {
     return(`<div>
               <strong>${elem.author}</strong>:
               <em>${elem.text}</em>
             </div>`);
   }).join(" ");
 
-  document.getElementsByClassName('panel-chat-message').innerHTML = html;
+  document.getElementsByClassName('panel-chat-message').innerHTML = html;*/
 }
 
 function addMessage(e) {  
   var message = {
-    author: "paty",
-    text: document.getElementtById('mensaje').value
+    hora: obtenerHora(),
+    text: $("#mensaje").val()
   };
 
   socket.emit('new-message', message);
